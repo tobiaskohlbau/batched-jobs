@@ -17,3 +17,8 @@ make run
 
 If you execute `kubectl get jobs` you should observe a job for every topic [1,2,3].
 If you stop the execution of the generator the jobs should vanish after 30 seconds.
+
+# Reference
+
+Based on tgik-controller by jbeda shown in TGIK 007, 008 and 009.
+https://github.com/jbeda/tgik-controller
