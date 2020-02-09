@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: batched-jobs-controller
+  labels:
+    app: batched-jobs-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: batched-jobs-controller
+  template:
+    metadata:
+      labels:
+        app: batched-jobs-controller
+    spec:
+      serviceAccountName: batchedjobscontroller
+      containers:
+      - name: controller
+        image: {{REGISTRY}}/batched-jobs/controller:{{TAG}}
+        imagePullPolicy: Always
+        env:
+          - name: REDIS_ADDR
+            value: "redis:6379"
